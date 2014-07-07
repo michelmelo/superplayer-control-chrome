@@ -1,24 +1,26 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    jshint: {
-      all: ['src/js/*.js', 'src/js/**/*.js']
+    pkg: grunt.file.readJSON('package.json'),
+    /*jshint: {
+      all: ['src/js/*.js', 'src/js//.js']
+    },*/
+    clean: {
+      dist: ['dist']
     },
-    clean: ['dist/'],
     copy: {
-      files: [
-        {
-          expand: true,
-          src: ['src/**'],
-          dest: 'dist/'
-        }
-      ]
+      files: {
+        expand: true,
+        cwd: 'src/',
+        src: '**',
+        dest: 'dist/'
+      }
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-jshint');
+  //grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('default', ['jshint', 'clean', 'copy']);
+  grunt.registerTask('default', ['clean', 'copy']);
 };

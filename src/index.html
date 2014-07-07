@@ -3,10 +3,22 @@
   <head>
     <title>Superplayer Control</title>
     <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="components/fontawesome/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="css/app.css">
   </head>
-  <body style="width: 500px; height: 300px;">
+  <body>
     <div ng-controller="MainController">
-      <span>{{teste}}</span>
+      <div ng-hide="tabId">
+        <h1>Abra a extenção na aba do <a href="http://superplayer.fm" target="_blank" title="Superplayer.fm">Superplayer</a></h1>
+      </div>
+      <div ng-show="tabId" class="controls">
+        <a href="#" ng-click="play()" class="play">
+          <i class="fa fa-play"></i>
+        </a>
+        <a href="#" ng-click="next()">
+          <i class="fa fa-forward"></i>
+        </a>
+      </div>
     </div>
     <script type="text/javascript" src="components/angular/angular.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
