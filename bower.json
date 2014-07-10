@@ -6,7 +6,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "angular": "*",
     "fontawesome": "*"
   },
   "ignore": [

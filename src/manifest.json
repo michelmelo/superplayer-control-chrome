@@ -5,7 +5,7 @@
   "description": "Extension to control Superplayer",
   "version": "1.0",
   "permissions": [
-    "tabs", "http://superplayer.fm/*", "activeTab"
+    "tabs", "https://www.superplayer.fm/*", "activeTab"
   ],
   "browser_action": {
     "default_icon": "icon.png",
