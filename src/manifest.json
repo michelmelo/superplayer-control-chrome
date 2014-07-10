@@ -1,21 +1,37 @@
 {
   "manifest_version": 2,
 
-  "name": "Superplayer Control",
-  "description": "Extension to control Superplayer",
+  "name": "Superplayer.fm Control",
+  "description": "Extension to control Superplayer.fm",
   "version": "1.0",
   "permissions": [
-    "tabs", "https://www.superplayer.fm/*", "activeTab"
+    "tabs", "https://*.superplayer.fm/*"
   ],
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "index.html"
   },
+  "background": {
+    "scripts": ["js/globals.js", "js/hotkeys.js"]
+  },
   "commands": {
     "_execute_browser_action": {
-      "suggested_keys": {
-        "mac": "Control+Shift+P"
-      }
+      "suggested_key": {
+        "default": "Alt+S"
+      },
+      "description": "Open Superplayer Control"
+    },
+    "play_pause": {
+      "suggested_key": {
+        "default": "Alt+P"
+      },
+      "description": "Play and pause songs"
+    },
+    "next": {
+      "suggested_key": {
+        "default": "Alt+N"
+      },
+      "description": "Play the next song"
     }
   }
 }

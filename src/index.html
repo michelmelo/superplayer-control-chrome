@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
   <head>
     <title>Superplayer Control</title>
     <meta charset="utf-8">
@@ -7,21 +7,18 @@
     <link type="text/css" rel="stylesheet" href="css/app.css">
   </head>
   <body>
-    <div ng-controller="MainController">
-      <div ng-hide="tabId">
-        <h1>Abra a extenção na aba do <a href="http://superplayer.fm" target="_blank" title="Superplayer.fm">Superplayer</a></h1>
-      </div>
-      <div ng-show="tabId" class="controls">
-        <a href="#" id="play" class="play">
+    <div>
+      <div class="controls">
+        <a href="#" id="play" class="play" title="Play">
           <i class="fa fa-play"></i>
         </a>
-        <a href="#" id="next">
+        <a href="#" id="next" title="Next">
           <i class="fa fa-forward"></i>
         </a>
       </div>
     </div>
-    <script type="text/javascript" src="js/extension.js"></script>
-    <script type="text/javascript" src="js/control.js"></script>
+    <script type="text/javascript" src="js/globals.js"></script>
     <script type="text/javascript" src="js/open.js"></script>
+    <script type="text/javascript" src="js/control.js"></script>
   </body>
 </html>
