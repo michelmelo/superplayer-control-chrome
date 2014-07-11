@@ -1,5 +1,9 @@
 (function () {
 
-  getTabId();
+  verifySuperplayerIsOpen(function (isOpen) {
+    if (!isOpen) {
+      openTab();
+    }
+  });
 
 }());

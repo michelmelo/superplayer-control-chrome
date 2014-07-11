@@ -26,17 +26,33 @@ var tabId = 0,
   script = 'document.querySelector("a[data-function={0}]").click()';
 
 
-// Used to get Superplayer tab id
-var getTabId = (function () {
+
+// Used to open a new tab
+var openTab = (function () {
+  chrome.tabs.create({
+    url: 'https://superplayer.fm',
+    active: true
+  }, function (tab) {
+    if (tab && tab.id) {
+      tabId = tab.id;
+    }
+    else {
+      throw new Error('Error when creating a new tab.');
+    }
+  });
+});
+
+// Verify all tabs to get Superplayer tab
+var verifySuperplayerIsOpen = (function (callback) {
   chrome.tabs.query({
     'status': 'complete' // Get all loaded tabs
   }, function (tabs) {
-    // Verify tabs quantity
-    if (tabs.length > 0) {
-      var i = 0,
-        tabsLen = tabs.length,
-        isOpen = false;
+    var i = 0,
+      tabsLen = tabs.length,
+      isOpen = false;
 
+    // Verify tabs quantity
+    if (tabsLen > 0) {
       // Verify the url of all open tabs
       for (; i < tabsLen; i++) {
         if (tabs[i].url.indexOf('superplayer.fm') > -1) {
@@ -44,45 +60,36 @@ var getTabId = (function () {
           isOpen = true;
         }
       }
+    }
 
-      if (!isOpen) {
-        // Open a new tab to Superplayer
-        chrome.tabs.create({
-          url: 'https://superplayer.fm',
-          active: true
-        }, function (tab) {
-          if (tab && tab.id) {
-            tabId = tab.id;
-          }
-          else {
-            throw new Error('Error when creating a new tab.');
-          }
-        });
-      }
+    callback(isOpen);
+  });
+});
+
+// Functions to execute events
+var play = (function () {
+  verifySuperplayerIsOpen(function (isOpen) {
+    if (isOpen) {
+      chrome.tabs.executeScript(tabId, {
+        code: script.format('play')
+      });
     }
   });
 });
 
-
-// Functions to execute events
-var play = (function () {
-  if (tabId > 0) {
-    chrome.tabs.executeScript(tabId, {
-      code: script.format('play')
-    });
-  }
-  else {
-    throw new Error('Error 404: Superplayer tab not found.');
-  }
+var next = (function () {
+  verifySuperplayerIsOpen(function (isOpen) {
+    if (isOpen) {
+      chrome.tabs.executeScript(tabId, {
+        code: script.format('next')
+      });
+    }
+  });
 });
 
-var next = (function () {
-  if (tabId > 0) {
-    chrome.tabs.executeScript(tabId, {
-      code: script.format('next')
-    });
-  }
-  else {
-    throw new Error('Error 404: Superplayer tab not found.');
+// Add tab events
+chrome.tabs.onRemoved.addListener(function (closedTabId, obj) {
+  if (tabId > 0 && tabId === closedTabId) {
+    tabId = 0;
   }
 });
