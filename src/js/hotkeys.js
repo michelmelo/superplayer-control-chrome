@@ -11,6 +11,10 @@
       // Forward
       next();
     }
+    else if (command === 'mute' && mute) {
+      // Mute
+      mute();
+    }
   });
 
 }(chrome));

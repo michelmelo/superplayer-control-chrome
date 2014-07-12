@@ -22,8 +22,11 @@
 // Global variable to save the Chrome's tab id
 var tabId = 0,
 
-  // Superplayer selector (elements to click)
-  script = 'document.querySelector("a[data-function={0}]").click()';
+  // Get elements from Superplayer by function
+  funtionSelector = 'document.querySelector("a[data-function={0}]").click()',
+
+  // Get elements from Superplayer by ID
+  idSelector = 'document.getElementById("{0}").click()';
 
 
 
@@ -72,7 +75,8 @@ var askForState = function () {
   verifySuperplayerIsOpen(function (isOpen) {
     if (isOpen) {
       chrome.tabs.sendMessage(tabId, {
-        isPlaying: true
+        isPlaying: true,
+        isMute: true
       });
     }
   });
@@ -83,7 +87,7 @@ var play = (function () {
   verifySuperplayerIsOpen(function (isOpen) {
     if (isOpen) {
       chrome.tabs.executeScript(tabId, {
-        code: script.format('play')
+        code: funtionSelector.format('play')
       });
     }
   });
@@ -93,7 +97,17 @@ var next = (function () {
   verifySuperplayerIsOpen(function (isOpen) {
     if (isOpen) {
       chrome.tabs.executeScript(tabId, {
-        code: script.format('next')
+        code: funtionSelector.format('next')
+      });
+    }
+  });
+});
+
+var mute = (function () {
+  verifySuperplayerIsOpen(function (isOpen) {
+    if (isOpen) {
+      chrome.tabs.executeScript(tabId, {
+        code: idSelector.format('volume-control')
       });
     }
   });

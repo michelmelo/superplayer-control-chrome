@@ -1,7 +1,7 @@
 (function (chrome) {
 
   // Send the play button state to popup
-  var sendButtonState = function () {
+  var sendPlayButtonState = function () {
     var classList = document.querySelector('a[data-function=play]').classList;
     if (classList) {
       chrome.runtime.sendMessage({
@@ -10,15 +10,34 @@
     }
   };
 
+  // Send the volume button state to popup
+  var sendVolumeButtonState = function () {
+    var el = document.querySelector('#volume-control #volume-control-muted');
+    if (el) {
+      var isMute = (el.style.display !== 'none');
+      chrome.runtime.sendMessage({
+        isMute: isMute
+      });
+    }
+  };
+
   // Play button action
   document.querySelector('a[data-function=play]').addEventListener('click', function () {
-    sendButtonStatus();
+    sendPlayButtonState();
+  });
+
+  // Volume button action
+  document.querySelector('#volume-control').addEventListener('click', function () {
+    sendVolumeButtonState();
   });
 
   // Event called when the extension popup is open
   chrome.runtime.onMessage.addListener(function (request, sender, callback) {
     if (request.isPlaying) {
-      sendButtonState();
+      sendPlayButtonState();
+    }
+    if (request.isMute) {
+      sendVolumeButtonState();
     }
   });
 
