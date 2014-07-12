@@ -19,11 +19,8 @@
 }(String));
 
 
-// Global variable to save the Chrome's tab id
-var tabId = 0,
-
-  // Get elements from Superplayer by function
-  funtionSelector = 'document.querySelector("a[data-function={0}]").click()',
+// Get elements from Superplayer by function
+var funtionSelector = 'document.querySelector("a[data-function={0}]").click()',
 
   // Get elements from Superplayer by ID
   idSelector = 'document.getElementById("{0}").click()';
@@ -35,13 +32,6 @@ var openTab = (function () {
   chrome.tabs.create({
     url: 'https://superplayer.fm',
     active: true
-  }, function (tab) {
-    if (tab && tab.id) {
-      tabId = tab.id;
-    }
-    else {
-      throw new Error('Error when creating a new tab.');
-    }
   });
 });
 
@@ -52,7 +42,8 @@ var verifySuperplayerIsOpen = (function (callback) {
   }, function (tabs) {
     var i = 0,
       tabsLen = tabs.length,
-      isOpen = false;
+      isOpen = false,
+      tabId = -1;
 
     // Verify tabs quantity
     if (tabsLen > 0) {
@@ -65,14 +56,14 @@ var verifySuperplayerIsOpen = (function (callback) {
       }
     }
 
-    callback(isOpen);
+    callback(isOpen, tabId);
   });
 });
 
 
 // Ask to content script about play button state
-var askForState = function () {
-  verifySuperplayerIsOpen(function (isOpen) {
+var askForState = (function () {
+  verifySuperplayerIsOpen(function (isOpen, tabId) {
     if (isOpen) {
       chrome.tabs.sendMessage(tabId, {
         isPlaying: true,
@@ -80,11 +71,11 @@ var askForState = function () {
       });
     }
   });
-};
+});
 
 // Functions to execute events
 var play = (function () {
-  verifySuperplayerIsOpen(function (isOpen) {
+  verifySuperplayerIsOpen(function (isOpen, tabId) {
     if (isOpen) {
       chrome.tabs.executeScript(tabId, {
         code: funtionSelector.format('play')
@@ -94,7 +85,7 @@ var play = (function () {
 });
 
 var next = (function () {
-  verifySuperplayerIsOpen(function (isOpen) {
+  verifySuperplayerIsOpen(function (isOpen, tabId) {
     if (isOpen) {
       chrome.tabs.executeScript(tabId, {
         code: funtionSelector.format('next')
@@ -104,18 +95,11 @@ var next = (function () {
 });
 
 var mute = (function () {
-  verifySuperplayerIsOpen(function (isOpen) {
+  verifySuperplayerIsOpen(function (isOpen, tabId) {
     if (isOpen) {
       chrome.tabs.executeScript(tabId, {
         code: idSelector.format('volume-control')
       });
     }
   });
-});
-
-// Add tab events
-chrome.tabs.onRemoved.addListener(function (closedTabId, obj) {
-  if (tabId > 0 && tabId === closedTabId) {
-    tabId = 0;
-  }
 });

@@ -14,6 +14,7 @@
     else if (command === 'mute' && mute) {
       // Mute
       mute();
+      askForState();
     }
   });
 
