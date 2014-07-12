@@ -1,4 +1,5 @@
-#Superplayer Control
+![Logo](http://romuloalves.github.io/superplayer-control/images/icon32.png) Superplayer Control
+===
 
 *A Chrome extension to control [Superplayer](http://superplayer.fm).*
 
@@ -11,12 +12,17 @@
 git clone https://github.com/romuloalves/superplayer-control.git
 ```
 
-####Download dependencies
+####Download Grunt dependencies
+```
+npm install
+```
+
+####Download Bower dependencies
 ```
 bower install
 ```
 
-####Generate extension
+####Deploy files
 ```
 grunt
 ```
@@ -45,6 +51,8 @@ grunt
 
 ##Default Shortcuts
 
+![Shortcuts](http://romuloalves.github.io/superplayer-control/images/shortcuts.png)
+
 ####Open extension popup
 ```
 ALT + S
@@ -61,9 +69,3 @@ ALT + N
 ```
 
 *To use other shortcut combinations, follow this steps: [https://gist.github.com/romuloalves/80fccfbb633602ffd1fb](https://gist.github.com/romuloalves/80fccfbb633602ffd1fb)*
-
-
-
-##Next features
-
-- Mute

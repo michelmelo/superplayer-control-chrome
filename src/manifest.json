@@ -30,19 +30,19 @@
       "suggested_key": {
         "default": "Alt+S"
       },
-      "description": "Open Superplayer Control"
+      "description": "Abrir Superplayer Control"
     },
     "play_pause": {
       "suggested_key": {
         "default": "Alt+P"
       },
-      "description": "Play and pause songs"
+      "description": "Play/Pause"
     },
     "next": {
       "suggested_key": {
         "default": "Alt+N"
       },
-      "description": "Play the next song"
+      "description": "Próxima música"
     }
   }
 }
