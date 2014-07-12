@@ -12,7 +12,12 @@ module.exports = function(grunt) {
         files: [
           {src: 'src/manifest.json', dest: 'dist/manifest.json'},
           {src: 'src/index.html', dest: 'dist/index.html'},
-          {src: 'src/icon.png', dest: 'dist/icon.png'},
+          {
+            expand: true,
+            cwd: 'src/',
+            src: '*.png',
+            dest: 'dist/'
+          },
           {
             expand: true,
             cwd: 'src/components/fontawesome',
@@ -41,7 +46,8 @@ module.exports = function(grunt) {
           'dist/js/globals.js': ['src/js/globals.js'],
           'dist/js/open.js': ['src/js/open.js'],
           'dist/js/control.js': ['src/js/control.js'],
-          'dist/js/hotkeys.js': ['src/js/hotkeys.js']
+          'dist/js/hotkeys.js': ['src/js/hotkeys.js'],
+          'dist/js/content.js': ['src/js/content.js']
         }
       }
     },

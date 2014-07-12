@@ -66,6 +66,18 @@ var verifySuperplayerIsOpen = (function (callback) {
   });
 });
 
+
+// Ask to content script about play button state
+var askForState = function () {
+  verifySuperplayerIsOpen(function (isOpen) {
+    if (isOpen) {
+      chrome.tabs.sendMessage(tabId, {
+        isPlaying: true
+      });
+    }
+  });
+};
+
 // Functions to execute events
 var play = (function () {
   verifySuperplayerIsOpen(function (isOpen) {
