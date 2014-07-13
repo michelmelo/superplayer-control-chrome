@@ -21,6 +21,15 @@
     }
   };
 
+  var sendIsLiked = function () {
+    var classList = document.querySelector('a[data-function=like]').classList;
+    if (classList) {
+      chrome.runtime.sendMessage({
+        isLiked: classList.contains('active')
+      });
+    }
+  };
+
   // Play button action
   document.querySelector('a[data-function=play]').addEventListener('click', function () {
     sendPlayButtonState();
@@ -38,6 +47,9 @@
     }
     if (request.isMute) {
       sendVolumeButtonState();
+    }
+    if (request.isLiked) {
+      sendIsLiked();
     }
   });
 

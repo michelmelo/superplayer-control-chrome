@@ -7,16 +7,16 @@ body {
 }
 
 .controls ul {
-  overflow: auto;
   display: table;
-  vertical-align: middle;
-  padding: 0;
   margin: 0;
+  overflow: auto;
+  padding: 0;
+  vertical-align: middle;
 }
 
 .controls li {
-  list-style: none;
   display: table-cell;
+  list-style: none;
   padding-right: 10px;
 }
 
@@ -25,18 +25,17 @@ body {
 }
 
 .controls a {
-  color: #000;
-  text-decoration: none;
-  outline: none;
-  font-size: 30px;
-  display: table;
+  background-color: #E94E4C;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   color: #FFF;
+  display: table;
+  font-size: 30px;
+  height: 50px;
+  outline: none;
+  text-decoration: none;
   text-align: center;
   width: 50px;
-  height: 50px;
-  background-color: #E94E4C;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  border-radius: 50%;
 }
 
 .controls a i {
@@ -45,9 +44,21 @@ body {
 
 .controls a.play {
   font-size: 40px;
-  width: 70px;
   height: 70px;
+  width: 70px;
 }
 .controls a.play i {
   margin-top: 15px;
+}
+
+.controls i.fa-volume-off {
+  text-align: left;
+  width: 28px;
+}
+
+.controls #like.liked {
+  box-shadow: none;
+  background: #FFF;
+  color: #E94E4C;
+  cursor: default;
 }

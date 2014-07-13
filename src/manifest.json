@@ -26,29 +26,29 @@
     }
   ],
   "commands": {
-    "_execute_browser_action": {
-      "suggested_key": {
-        "default": "Alt+S"
-      },
-      "description": "Abrir Superplayer Control"
-    },
     "play_pause": {
       "suggested_key": {
         "default": "Alt+P"
       },
-      "description": "Play/Pause"
+      "description": "Tocar/Pausar música"
     },
     "next": {
       "suggested_key": {
         "default": "Alt+N"
       },
-      "description": "Próxima música"
+      "description": "Tocar próxima música"
     },
     "mute": {
       "suggested_key": {
         "default": "Alt+M"
       },
-      "description": "Mudo"
+      "description": "Deixar mudo"
+    },
+    "like": {
+      "suggested_key": {
+        "default": "Alt+L"
+      },
+      "description": "Amei esta música"
     }
   }
 }

@@ -5,7 +5,7 @@
     if (play) {
       play();
     }
-    askForState();
+    askForState(true, false, false);
   });
 
   // Forward
@@ -13,6 +13,8 @@
     if (next) {
       next();
     }
+    // Verify if song is liked
+    askForState(false, false, true);
   });
 
   // Mute
@@ -20,7 +22,17 @@
     if (mute) {
       mute();
     }
-    askForState();
+    askForState(false, true, false);
+  });
+
+  // Like
+  document.getElementById('like').addEventListener('click', function () {
+    if (like) {
+      var button = this;
+      like(function () {
+        askForState(false, false, true);
+      });
+    }
   });
 
   // Get message about play button state (playing or paused)
@@ -46,6 +58,16 @@
       else {
         muteIcon.classList.add('fa-volume-up');
         muteIcon.classList.remove('fa-volume-off');
+      }
+    }
+
+    if (request.isLiked !== undefined) {
+      var likeButton = document.getElementById('like');
+      if (request.isLiked) {
+        likeButton.classList.add('liked');
+      }
+      else {
+        likeButton.classList.remove('liked');
       }
     }
   });

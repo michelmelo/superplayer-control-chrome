@@ -62,12 +62,23 @@ var verifySuperplayerIsOpen = (function (callback) {
 
 
 // Ask to content script about play button state
-var askForState = (function () {
+var askForState = (function (isPlaying, isMute, isLiked) {
+  if (isPlaying === undefined) {
+    isPlaying = true;
+  }
+  if (isMute === undefined) {
+    isMute = true;
+  }
+  if (isLiked === undefined) {
+    isLiked = true;
+  }
+
   verifySuperplayerIsOpen(function (isOpen, tabId) {
     if (isOpen) {
       chrome.tabs.sendMessage(tabId, {
-        isPlaying: true,
-        isMute: true
+        isPlaying: isPlaying,
+        isMute: isMute,
+        isLiked: isLiked
       });
     }
   });
@@ -100,6 +111,16 @@ var mute = (function () {
       chrome.tabs.executeScript(tabId, {
         code: idSelector.format('volume-control')
       });
+    }
+  });
+});
+
+var like = (function (callback) {
+  verifySuperplayerIsOpen(function (isOpen, tabId) {
+    if (isOpen) {
+      chrome.tabs.executeScript(tabId, {
+        code: funtionSelector.format('like')
+      }, callback);
     }
   });
 });
