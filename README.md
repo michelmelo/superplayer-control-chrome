@@ -4,6 +4,11 @@
 *A Chrome extension to control [Superplayer](http://superplayer.fm).*
 
 
+##Available on
+![Chrome Web Store](http://romuloalves.github.io/superplayer-control/images/chromewebstore.png)
+[Download](https://chrome.google.com/webstore/detail/superplayerfm-control/kfcbakdlhhmnfnpgjohggcaifdadglbm)
+
+
 
 ##Run
 
@@ -53,19 +58,26 @@ grunt
 
 ![Shortcuts](http://romuloalves.github.io/superplayer-control/images/shortcuts.png)
 
-####Open extension popup
-```
-ALT + S
-```
-
-####Play/Pause
+####Tocar/Pausar música (Play and pause)
 ```
 ALT + P
 ```
 
-####Play the next
+####Tocar próxima música (Play next song)
 ```
 ALT + N
 ```
+
+####Deixar mudo (Mute)
+```
+ALT + M
+```
+
+####Amei esta música (Like song)
+```
+ALT + L
+```
+
+
 
 *To use other shortcut combinations, follow this steps: [https://gist.github.com/romuloalves/80fccfbb633602ffd1fb](https://gist.github.com/romuloalves/80fccfbb633602ffd1fb)*
