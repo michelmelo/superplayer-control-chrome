@@ -62,7 +62,10 @@ var verifySuperplayerIsOpen = (function (callback) {
 
 
 // Ask to content script about play button state
-var askForState = (function (isPlaying, isMute, isLiked) {
+var askForState = (function (listSelected, isPlaying, isMute, isLiked) {
+  if (listSelected === undefined) {
+    listSelected = false;
+  }
   if (isPlaying === undefined) {
     isPlaying = true;
   }
@@ -76,6 +79,7 @@ var askForState = (function (isPlaying, isMute, isLiked) {
   verifySuperplayerIsOpen(function (isOpen, tabId) {
     if (isOpen) {
       chrome.tabs.sendMessage(tabId, {
+        listSelected: listSelected,
         isPlaying: isPlaying,
         isMute: isMute,
         isLiked: isLiked

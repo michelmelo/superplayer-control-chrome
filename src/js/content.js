@@ -30,6 +30,13 @@
     }
   };
 
+  var sendHaveListSelected = function () {
+    var el = document.getElementById('controls-area');
+    chrome.runtime.sendMessage({
+      listSelected: (el.style.display !== 'none')
+    });
+  };
+
   // Play button action
   document.querySelector('a[data-function=play]').addEventListener('click', function () {
     sendPlayButtonState();
@@ -50,6 +57,9 @@
     }
     if (request.isLiked) {
       sendIsLiked();
+    }
+    if (request.listSelected) {
+      sendHaveListSelected();
     }
   });
 

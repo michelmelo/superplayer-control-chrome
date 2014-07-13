@@ -1,12 +1,33 @@
 body {
   padding: 15px;
+  -webkit-user-select: none;
 }
 
-.controls {
+#alert {
+  background: #000;
+  color: #FFF;
+  display: table;
+  font-size: 25px;
+  height: 100%;
+  left: 0;
+  opacity: .9;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  vertical-align: middle;
+  width: 100%;
+}
+
+#alert span {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#controls {
   text-align: center;
 }
 
-.controls ul {
+#controls ul {
   display: table;
   margin: 0;
   overflow: auto;
@@ -14,17 +35,17 @@ body {
   vertical-align: middle;
 }
 
-.controls li {
+#controls li {
   display: table-cell;
   list-style: none;
   padding-right: 10px;
 }
 
-.controls li:last-child {
+#controls li:last-child {
   padding-right: 0;
 }
 
-.controls a {
+#controls a {
   background-color: #E94E4C;
   border-radius: 50%;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
@@ -38,25 +59,25 @@ body {
   width: 50px;
 }
 
-.controls a i {
+#controls a i {
   margin-top: 11px;
 }
 
-.controls a.play {
+#controls a.play {
   font-size: 40px;
   height: 70px;
   width: 70px;
 }
-.controls a.play i {
+#controls a.play i {
   margin-top: 15px;
 }
 
-.controls i.fa-volume-off {
+#controls i.fa-volume-off {
   text-align: left;
   width: 28px;
 }
 
-.controls #like.liked {
+#controls #like.liked {
   box-shadow: none;
   background: #FFF;
   color: #E94E4C;
