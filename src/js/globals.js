@@ -94,6 +94,8 @@ var play = (function () {
     if (isOpen) {
       chrome.tabs.executeScript(tabId, {
         code: funtionSelector.format('play')
+      }, function () {
+        askForState(false, true, false, false);
       });
     }
   });
@@ -104,6 +106,8 @@ var next = (function () {
     if (isOpen) {
       chrome.tabs.executeScript(tabId, {
         code: funtionSelector.format('next')
+      }, function () {
+        askForState(false, false, false, true);
       });
     }
   });
@@ -114,6 +118,8 @@ var mute = (function () {
     if (isOpen) {
       chrome.tabs.executeScript(tabId, {
         code: idSelector.format('volume-control')
+      }, function () {
+        askForState(false, false, true, false);
       });
     }
   });
@@ -124,7 +130,9 @@ var like = (function (callback) {
     if (isOpen) {
       chrome.tabs.executeScript(tabId, {
         code: funtionSelector.format('like')
-      }, callback);
+      }, function () {
+        askForState(false, false, false, true);
+      });
     }
   });
 });

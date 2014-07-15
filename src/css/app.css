@@ -6,7 +6,7 @@ body {
 #alert {
   background: #000;
   color: #FFF;
-  display: table;
+  display: none;
   font-size: 25px;
   height: 100%;
   left: 0;

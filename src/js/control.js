@@ -5,7 +5,7 @@
     if (play) {
       play();
     }
-    askForState(false, true, false, false);
+    
   });
 
   // Forward
@@ -14,7 +14,7 @@
       next();
     }
     // Verify if song is liked
-    askForState(false, false, false, true);
+    
   });
 
   // Mute
@@ -22,16 +22,13 @@
     if (mute) {
       mute();
     }
-    askForState(false, false, true, false);
+    
   });
 
   // Like
   document.getElementById('like').addEventListener('click', function () {
     if (like) {
-      var button = this;
-      like(function () {
-        askForState(false, false, false, true);
-      });
+      like();
     }
   });
 
@@ -71,8 +68,13 @@
       }
     }
 
-    if (request.listSelected !== undefined && request.listSelected) {
-      document.getElementById('alert').style.display = 'none';
+    if (request.listSelected !== undefined) {
+      if (request.listSelected) {
+        document.getElementById('alert').style.display = 'none';
+      }
+      else {
+        document.getElementById('alert').style.display = 'table';
+      }
     }
   });
 
