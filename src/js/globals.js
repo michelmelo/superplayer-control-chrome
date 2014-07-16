@@ -60,6 +60,9 @@ var verifySuperplayerIsOpen = (function (callback) {
   });
 });
 
+var getHotKeys = (function (callback) {
+  chrome.commands.getAll(callback);
+});
 
 // Ask to content script about play button state
 var askForState = (function (listSelected, isPlaying, isMute, isLiked) {

@@ -26,7 +26,7 @@
     }
   ],
   "commands": {
-    "play_pause": {
+    "play": {
       "suggested_key": {
         "default": "Alt+P"
       },

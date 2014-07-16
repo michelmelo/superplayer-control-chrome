@@ -5,7 +5,7 @@
     if (play) {
       play();
     }
-    
+
   });
 
   // Forward
@@ -14,7 +14,7 @@
       next();
     }
     // Verify if song is liked
-    
+
   });
 
   // Mute
@@ -22,7 +22,7 @@
     if (mute) {
       mute();
     }
-    
+
   });
 
   // Like
