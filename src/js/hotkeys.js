@@ -18,6 +18,10 @@
       // Like
       like();
     }
+    else if (command === 'hate' && hate) {
+      // Hate
+      hate();
+    }
   });
 
 }(chrome));

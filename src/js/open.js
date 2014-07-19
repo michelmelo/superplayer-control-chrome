@@ -13,7 +13,7 @@
         var len = keys.length;
         if (len > 0) {
           for (var i = 0; i < len; i++) {
-            if (document.getElementById(keys[i].name) !== null) {
+            if (document.getElementById(keys[i].name) !== null && keys[i].shortcut !== '') {
               document.getElementById(keys[i].name).title += (': {0}').format(keys[i].shortcut);
             }
           }

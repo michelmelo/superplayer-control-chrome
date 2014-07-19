@@ -37,27 +37,27 @@ var openTab = (function () {
 
 // Verify all tabs to get Superplayer tab
 var verifySuperplayerIsOpen = (function (callback) {
-  chrome.tabs.query({
-    'status': 'complete' // Get all loaded tabs
-  }, function (tabs) {
-    var i = 0,
-      tabsLen = tabs.length,
-      isOpen = false,
-      tabId = -1;
+  chrome.tabs.query({},
+      function (tabs) {
+      var i = 0,
+        tabsLen = tabs.length,
+        isOpen = false,
+        tabId = -1;
 
-    // Verify tabs quantity
-    if (tabsLen > 0) {
-      // Verify the url of all open tabs
-      for (; i < tabsLen; i++) {
-        if (tabs[i].url.indexOf('superplayer.fm') > -1) {
-          tabId = tabs[i].id;
-          isOpen = true;
+      // Verify tabs quantity
+      if (tabsLen > 0) {
+        // Verify the url of all open tabs
+        for (; i < tabsLen; i++) {
+          if (tabs[i].url.indexOf('superplayer.fm') > -1) {
+            tabId = tabs[i].id;
+            isOpen = true;
+          }
         }
       }
-    }
 
-    callback(isOpen, tabId);
-  });
+      callback(isOpen, tabId);
+    }
+  );
 });
 
 var getHotKeys = (function (callback) {
@@ -135,6 +135,16 @@ var like = (function (callback) {
         code: funtionSelector.format('like')
       }, function () {
         askForState(false, false, false, true);
+      });
+    }
+  });
+});
+
+var hate = (function () {
+  verifySuperplayerIsOpen(function (isOpen, tabId) {
+    if (isOpen) {
+      chrome.tabs.executeScript(tabId, {
+        code: funtionSelector.format('hate')
       });
     }
   });

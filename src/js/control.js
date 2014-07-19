@@ -5,7 +5,6 @@
     if (play) {
       play();
     }
-
   });
 
   // Forward
@@ -13,8 +12,6 @@
     if (next) {
       next();
     }
-    // Verify if song is liked
-
   });
 
   // Mute
@@ -22,13 +19,19 @@
     if (mute) {
       mute();
     }
-
   });
 
   // Like
   document.getElementById('like').addEventListener('click', function () {
     if (like) {
       like();
+    }
+  });
+
+  // Hate
+  document.getElementById('hate').addEventListener('click', function () {
+    if (hate) {
+      hate();
     }
   });
 
