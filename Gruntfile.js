@@ -47,7 +47,8 @@ module.exports = function(grunt) {
           'dist/js/open.js': ['src/js/open.js'],
           'dist/js/control.js': ['src/js/control.js'],
           'dist/js/hotkeys.js': ['src/js/hotkeys.js'],
-          'dist/js/content.js': ['src/js/content.js']
+          'dist/js/content.js': ['src/js/content.js'],
+          'dist/js/ga.js': ['src/js/ga.js']
         }
       }
     },
