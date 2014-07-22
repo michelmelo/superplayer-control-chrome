@@ -29,30 +29,34 @@
   "commands": {
     "play": {
       "suggested_key": {
-        "default": "Alt+P"
+        "default": "Ctrl+Shift+1"
       },
-      "description": "Tocar/Pausar música"
+      "description": "Tocar/Pausar música",
+      "global": true
     },
     "next": {
       "suggested_key": {
-        "default": "Alt+N"
+        "default": "Ctrl+Shift+2"
       },
-      "description": "Tocar próxima música"
+      "description": "Tocar próxima música",
+      "global": true
     },
     "mute": {
       "description": "Deixar mudo"
     },
     "like": {
       "suggested_key": {
-        "default": "Alt+L"
+        "default": "Ctrl+Shift+3"
       },
-      "description": "Amei esta música"
+      "description": "Amei esta música",
+      "global": true
     },
     "hate": {
       "suggested_key": {
-        "default": "Alt+D"
+        "default": "Ctrl+Shift+0"
       },
-      "description": "Esta música não me agradou"
+      "description": "Esta música não me agradou",
+      "global": true
     }
   }
 }
