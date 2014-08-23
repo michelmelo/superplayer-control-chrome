@@ -65,15 +65,12 @@ var getHotKeys = (function (callback) {
 });
 
 // Ask to content script about play button state
-var askForState = (function (listSelected, isPlaying, isMute, isLiked) {
+var askForState = (function (listSelected, isPlaying, isLiked) {
   if (listSelected === undefined) {
     listSelected = false;
   }
   if (isPlaying === undefined) {
     isPlaying = true;
-  }
-  if (isMute === undefined) {
-    isMute = true;
   }
   if (isLiked === undefined) {
     isLiked = true;
@@ -84,7 +81,6 @@ var askForState = (function (listSelected, isPlaying, isMute, isLiked) {
       chrome.tabs.sendMessage(tabId, {
         listSelected: listSelected,
         isPlaying: isPlaying,
-        isMute: isMute,
         isLiked: isLiked
       });
     }
@@ -98,7 +94,7 @@ var play = (function () {
       chrome.tabs.executeScript(tabId, {
         code: funtionSelector.format('play')
       }, function () {
-        askForState(false, true, false, false);
+        askForState(false, true, false);
       });
     }
   });
@@ -110,7 +106,7 @@ var next = (function () {
       chrome.tabs.executeScript(tabId, {
         code: funtionSelector.format('next')
       }, function () {
-        askForState(false, false, false, true);
+        askForState(false, false, true);
       });
     }
   });
@@ -121,8 +117,6 @@ var mute = (function () {
     if (isOpen) {
       chrome.tabs.executeScript(tabId, {
         code: idSelector.format('volume-control')
-      }, function () {
-        askForState(false, false, true, false);
       });
     }
   });
@@ -134,7 +128,7 @@ var like = (function (callback) {
       chrome.tabs.executeScript(tabId, {
         code: funtionSelector.format('like')
       }, function () {
-        askForState(false, false, false, true);
+        askForState(false, false, true);
       });
     }
   });

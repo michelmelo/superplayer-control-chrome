@@ -14,13 +14,6 @@
     }
   });
 
-  // Mute
-  document.getElementById('mute').addEventListener('click', function () {
-    if (mute) {
-      mute();
-    }
-  });
-
   // Like
   document.getElementById('like').addEventListener('click', function () {
     if (like) {
@@ -38,36 +31,27 @@
   // Get message about play button state (playing or paused)
   chrome.runtime.onMessage.addListener(function (request, sender, callback) {
     if (request.isPlaying !== undefined) {
-      var playIcon = document.querySelector('#play i');
+      var play = document.querySelector('#play');
       if (request.isPlaying) {
-        playIcon.classList.remove('fa-play');
-        playIcon.classList.add('fa-pause');
+        play.classList.remove('play');
+        play.classList.add('pause');
       }
       else {
-        playIcon.classList.add('fa-play');
-        playIcon.classList.remove('fa-pause');
-      }
-    }
-
-    if (request.isMute !== undefined) {
-      var muteIcon = document.querySelector('#mute i');
-      if (request.isMute) {
-        muteIcon.classList.remove('fa-volume-up');
-        muteIcon.classList.add('fa-volume-off');
-      }
-      else {
-        muteIcon.classList.add('fa-volume-up');
-        muteIcon.classList.remove('fa-volume-off');
+        play.classList.add('play');
+        play.classList.remove('pause');
       }
     }
 
     if (request.isLiked !== undefined) {
-      var likeButton = document.getElementById('like');
+      var likeButton = document.getElementById('like'),
+        hateButton = document.getElementById('hate');
       if (request.isLiked) {
         likeButton.classList.add('liked');
+        hateButton.classList.add('liked');
       }
       else {
         likeButton.classList.remove('liked');
+        hateButton.classList.remove('liked');
       }
     }
 
