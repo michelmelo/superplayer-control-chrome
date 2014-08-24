@@ -49,33 +49,36 @@ grunt
 - [grunt-contrib-uglify](https://www.npmjs.org/package/grunt-contrib-uglify)
 - [grunt-usemin](https://www.npmjs.org/package/grunt-useminbo)
 
-####[Bower](http://bower.io/)
-- [Font-Awesome](https://github.com/FortAwesome/Font-Awesome)
-
 
 
 ##Default Shortcuts
 
 ![Shortcuts](http://romuloalves.github.io/superplayer-control/images/shortcuts.png)
 
+*The shortcuts are globals*
+
 ####Tocar/Pausar música (Play and pause)
 ```
-ALT + P
+Windows/Linux: Ctrl + Shift + 1
+Mac: Command + Shift + 1
 ```
 
 ####Tocar próxima música (Play next song)
 ```
-ALT + N
+Windows/Linux: Ctrl + Shift + 2
+Mac: Command + Shift + 2
 ```
 
-####Deixar mudo (Mute)
+####Amei esta música (Like)
 ```
-ALT + M
+Windows/Linux: Ctrl + Shift + 3
+Mac: Command + Shift + 9
 ```
 
-####Amei esta música (Like song)
+####Esta música não me agradou (Hate)
 ```
-ALT + L
+Windows/Linux: Ctrl + Shift + 4
+Mac: Command + Shift + 0
 ```
 
 
