@@ -15,13 +15,7 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd: 'src',
-            src: 'img/*.png',
-            dest: 'dist/'
-          },
-          {
-            expand: true,
-            cwd: 'src/components/fontawesome',
-            src: 'fonts/**',
+            src: 'img/**/*.png',
             dest: 'dist/'
           }
         ]
@@ -36,7 +30,7 @@ module.exports = function(grunt) {
     cssmin: {
       dist: {
         files: {
-          'dist/css/control.min.css': ['src/components/fontawesome/css/font-awesome.min.css', 'src/css/app.css']
+          'dist/css/control.min.css': ['src/css/app.css']
         }
       }
     },

@@ -68,7 +68,7 @@ body {
 }
 #controls #play.pause {
   background-image: url("../img/buttons/pause.png");
-  background-position: 12px 10px;
+  background-position: 10px 10px;
   height: 70px;
   width: 70px;
 }
