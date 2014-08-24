@@ -47,6 +47,7 @@ body {
 
 #controls a {
   background-color: #E94E4C;
+  background-repeat: no-repeat;
   border-radius: 50%;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   color: #FFF;
@@ -59,27 +60,42 @@ body {
   width: 50px;
 }
 
-#controls a i {
-  margin-top: 11px;
-}
-
-#controls a.play {
-  font-size: 40px;
+#controls #play.play {
+  background-image: url("../img/buttons/play.png");
+  background-position: 12px 10px;
   height: 70px;
   width: 70px;
 }
-#controls a.play i {
-  margin-top: 15px;
+#controls #play.pause {
+  background-image: url("../img/buttons/pause.png");
+  background-position: 10px 10px;
+  height: 70px;
+  width: 70px;
 }
 
-#controls i.fa-volume-off {
-  text-align: left;
-  width: 28px;
+#controls #next {
+  background-image: url("../img/buttons/next.png");
+  background-position: 8px 5px;
+}
+
+#controls #like {
+  background-image: url("../img/buttons/like.png");
+}
+
+#controls #hate {
+  background-image: url("../img/buttons/hate.png");
+}
+
+#controls #like, #controls #hate {
+  background-position: 4px 6px;
 }
 
 #controls #like.liked {
   box-shadow: none;
-  background: #FFF;
-  color: #E94E4C;
+  background-color: #FFF;
+  background-image: url("../img/buttons/liked.png");
   cursor: default;
+}
+#controls #hate.liked {
+  display: none;
 }
