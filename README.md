@@ -1,11 +1,11 @@
-![Logo](http://romuloalves.github.io/superplayer-control/images/icon32.png) Superplayer Control
+![Logo](http://romuloalves.github.io/superplayer-control-chrome/images/icon32.png) Superplayer Control
 ===
 
 *A Chrome extension to control [Superplayer](http://superplayer.fm).*
 
 
 ##Available on
-![Chrome Web Store](http://romuloalves.github.io/superplayer-control/images/chromewebstore.png)
+![Chrome Web Store](http://romuloalves.github.io/superplayer-control-chrome/images/chromewebstore.png)
 [Download](https://chrome.google.com/webstore/detail/superplayerfm-control/kfcbakdlhhmnfnpgjohggcaifdadglbm)
 
 
@@ -14,7 +14,7 @@
 
 ####Clone
 ```
-git clone https://github.com/romuloalves/superplayer-control.git
+git clone https://github.com/romuloalves/superplayer-control-chrome.git
 ```
 
 ####Download Grunt dependencies
@@ -53,7 +53,7 @@ grunt
 
 ##Default Shortcuts
 
-![Shortcuts](http://romuloalves.github.io/superplayer-control/images/shortcuts.png)
+![Shortcuts](http://romuloalves.github.io/superplayer-control-chrome/images/shortcuts.png)
 
 *The shortcuts are globals*
 
