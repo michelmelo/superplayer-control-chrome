@@ -2,16 +2,16 @@
 
   // Send the play button state to popup
   var sendPlayButtonState = function () {
-    var classList = document.querySelector('a[data-function=play]').classList;
+    var classList = document.querySelector('a[data-action=pause]').classList;
     if (classList) {
       chrome.runtime.sendMessage({
-        isPlaying: classList.contains('playing')
+        isPlaying: !classList.contains('active')
       });
     }
   };
 
   var sendIsLiked = function () {
-    var classList = document.querySelector('a[data-function=like]').classList;
+    var classList = document.querySelector('a[data-action=love]').classList;
     if (classList) {
       chrome.runtime.sendMessage({
         isLiked: classList.contains('active')
@@ -27,7 +27,7 @@
   };
 
   // Play button action
-  document.querySelector('a[data-function=play]').addEventListener('click', function () {
+  document.querySelector('a[data-action=pause]').addEventListener('click', function () {
     sendPlayButtonState();
   });
 

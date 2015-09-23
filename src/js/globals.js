@@ -20,12 +20,7 @@
 
 
 // Get elements from Superplayer by function
-var funtionSelector = 'document.querySelector("a[data-function={0}]").click()',
-
-  // Get elements from Superplayer by ID
-  idSelector = 'document.getElementById("{0}").click()';
-
-
+var actionSelector = 'document.querySelector("button[data-action={0}]").click()';
 
 // Used to open a new tab
 var openTab = (function () {
@@ -92,7 +87,7 @@ var play = (function () {
   verifySuperplayerIsOpen(function (isOpen, tabId) {
     if (isOpen) {
       chrome.tabs.executeScript(tabId, {
-        code: funtionSelector.format('play')
+        code: actionSelector.format('pause')
       }, function () {
         askForState(false, true, false);
       });
@@ -104,7 +99,7 @@ var next = (function () {
   verifySuperplayerIsOpen(function (isOpen, tabId) {
     if (isOpen) {
       chrome.tabs.executeScript(tabId, {
-        code: funtionSelector.format('next')
+        code: actionSelector.format('skip')
       }, function () {
         askForState(false, false, true);
       });
@@ -116,7 +111,7 @@ var mute = (function () {
   verifySuperplayerIsOpen(function (isOpen, tabId) {
     if (isOpen) {
       chrome.tabs.executeScript(tabId, {
-        code: idSelector.format('volume-control')
+        code: actionSelector.format('volume')
       });
     }
   });
@@ -126,7 +121,7 @@ var like = (function (callback) {
   verifySuperplayerIsOpen(function (isOpen, tabId) {
     if (isOpen) {
       chrome.tabs.executeScript(tabId, {
-        code: funtionSelector.format('like')
+        code: actionSelector.format('love')
       }, function () {
         askForState(false, false, true);
       });
@@ -138,7 +133,7 @@ var hate = (function () {
   verifySuperplayerIsOpen(function (isOpen, tabId) {
     if (isOpen) {
       chrome.tabs.executeScript(tabId, {
-        code: funtionSelector.format('hate')
+        code: actionSelector.format('hate')
       });
     }
   });
