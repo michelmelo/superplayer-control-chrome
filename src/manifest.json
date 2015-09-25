@@ -3,9 +3,9 @@
 
   "name": "Superplayer.fm Control",
   "description": "Extension to control Superplayer.fm",
-  "version": "1.2",
+  "version": "1.3",
   "permissions": [
-    "tabs", "https://*.superplayer.fm/*", "https://ssl.google-analytics.com/"
+    "tabs", "*://*.superplayer.fm/*", "https://ssl.google-analytics.com/"
   ],
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
   "icons": {
@@ -22,7 +22,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://*.superplayer.fm/*"],
+      "matches": ["*://*.superplayer.fm/*"],
       "js": ["js/content.js"]
     }
   ],

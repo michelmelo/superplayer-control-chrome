@@ -1,35 +1,49 @@
 (function (chrome) {
-
   // Send the play button state to popup
   var sendPlayButtonState = function () {
-    var classList = document.querySelector('a[data-action=pause]').classList;
-    if (classList) {
-      chrome.runtime.sendMessage({
-        isPlaying: !classList.contains('active')
-      });
+    var pauseButton = document.querySelector('button[data-action=pause]'),
+      classList = null,
+      isPlaying = false;
+
+    if (pauseButton !== null && pauseButton !== undefined) {
+      classList = pauseButton.classList;
+      isPlaying = !classList.contains('active');
     }
+
+    chrome.runtime.sendMessage({
+      isPlaying: isPlaying
+    });
   };
 
   var sendIsLiked = function () {
-    var classList = document.querySelector('a[data-action=love]').classList;
-    if (classList) {
-      chrome.runtime.sendMessage({
-        isLiked: classList.contains('active')
-      });
+    var loveButton = document.querySelector('button[data-action=love]'),
+      classList = null,
+      loved = false;
+
+    if (loveButton !== null && loveButton !== undefined) {
+      classList = loveButton.classList;
+      loved = classList.contains('active');
     }
+
+    chrome.runtime.sendMessage({
+      isLiked: loved
+    });
   };
 
   var sendHaveListSelected = function () {
-    var el = document.getElementById('controls-area');
+    var el = document.querySelector('section[data-component="player-controls"]');
     chrome.runtime.sendMessage({
-      listSelected: (el.style.display !== 'none')
+      listSelected: el !== null && el !== undefined
     });
   };
 
   // Play button action
-  document.querySelector('a[data-action=pause]').addEventListener('click', function () {
-    sendPlayButtonState();
-  });
+  var pauseButton = document.querySelector('button[data-action=pause]');
+  if (pauseButton !== null && pauseButton !== undefined) {
+    pauseButton.addEventListener('click', function () {
+      sendPlayButtonState();
+    });
+  }
 
   // Event called when the extension popup is open
   chrome.runtime.onMessage.addListener(function (request, sender, callback) {
