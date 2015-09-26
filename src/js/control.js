@@ -30,7 +30,7 @@
 
   // Get message about play button state (playing or paused)
   chrome.runtime.onMessage.addListener(function (request, sender, callback) {
-    if (request.isPlaying !== undefined) {
+    if (request.isPlaying !== null && request.isPlaying !== undefined) {
       var play = document.querySelector('#play');
       if (request.isPlaying) {
         play.classList.remove('play');
@@ -42,7 +42,7 @@
       }
     }
 
-    if (request.isLiked !== undefined) {
+    if (request.isLiked !== null && request.isLiked !== undefined) {
       var likeButton = document.getElementById('like'),
         hateButton = document.getElementById('hate');
       if (request.isLiked) {
@@ -55,7 +55,7 @@
       }
     }
 
-    if (request.listSelected !== undefined) {
+    if (request.listSelected !== null && request.listSelected !== undefined) {
       if (request.listSelected) {
         document.getElementById('alert').style.display = 'none';
       }
