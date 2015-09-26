@@ -57,25 +57,25 @@ grunt
 
 *The shortcuts are globals*
 
-####Tocar/Pausar música (Play and pause)
+####Parar/Continuar Música (Play and Pause)
 ```
 Windows/Linux: Ctrl + Shift + 1
 Mac: Command + Shift + 1
 ```
 
-####Tocar próxima música (Play next song)
+####Pular Música (Play Next Song)
 ```
 Windows/Linux: Ctrl + Shift + 2
 Mac: Command + Shift + 2
 ```
 
-####Amei esta música (Like)
+####Amar Música (Like)
 ```
 Windows/Linux: Ctrl + Shift + 3
 Mac: Command + Shift + 9
 ```
 
-####Esta música não me agradou (Hate)
+####Odiar Música (Hate)
 ```
 Windows/Linux: Ctrl + Shift + 4
 Mac: Command + Shift + 0
