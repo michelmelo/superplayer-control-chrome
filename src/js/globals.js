@@ -25,7 +25,7 @@ var actionSelector = 'document.querySelector("button[data-action={0}]").click()'
 // Used to open a new tab
 var openTab = (function () {
   chrome.tabs.create({
-    url: 'https://superplayer.fm',
+    url: 'https://www.superplayer.fm',
     active: true
   });
 });
